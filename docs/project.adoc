@@ -1,0 +1,65 @@
+= Mangata: Project Proposal
+
+== Background
+
+AsciiDoc is a shorthand language for producing documents in publishable, consumable formats.
+As such, the language must be parsed, decoded, and transformed into another language for it to be publishable.
+This project is created as a companion to the AsciiDoc Language Specification to serve this purpose.
+The goal of this project is to produce a compatible implementation of the AsciiDoc Language specification in JavaScript.
+Over the years, the JavaScript ecosystem has continued to grow in popularity and now provides a vast number of tools, frameworks, and libraries that power both the modern Web and server-side applications.
+The language is available on multiple runtime environments (Node, Browser environment, GraalVM...). +
+Providing a JavaScript implementation will open up the AsciiDoc Language to the JavaScript world using code written specifically for that language platform.
+It's also worth mentioning that a JavaScript implementation of AsciiDoc has already proven to be valuable to the community via Asciidoctor.js.
+This project will be a key component to support browser extensions, preview for many code and text editors, static site generators, and web applications.
+
+== Scope
+
+The AsciiDoc JavaScript Implementation will implement the AsciiDoc Language Specification in order to pass the Technology Compatibility Kit (TCK) and be compliant with the specification.
+Since the first version of the AsciiDoc Language Specification is yet to be defined, our intent is that the implementation:
+
+* parses the AsciiDoc syntax
+* implements all the required built-in and intrinsic attributes required by the spec
+* tracks source information for all semantic elements (and perhaps more)
+* raises parsing events (as defined by the specification)
+* produces an Abstract Semantic Graph (ASG) as input to the TCK to validate that the document was comprehended properly
+* builds a in-memory Document Object Model (DOM)
+** provides access to the information in the document
+** allows the parsed document to be manipulated (via the API or extensions)
+** serves as input to the converter(s)
+* provides an API for loading AsciiDoc content into a Document Object Model
+* converts the content to at least the format required by the spec (likely HTML)
+
+Since we expect the specification to continuously evolve, we are prepared to evolve this implementation as well to keep pace.
+
+An early milestone will be to achieve compliance (via self certification) with the first version of the AsciiDoc Language Specification. Considering that the Eclipse Specification is code-driven, the JavaScript implementation will move forward together with the specification process. That means this implementation will necessarily start before the first version of the AsciiDoc Language Specification is ratified, and could be instrumental in the development of the specification itself.
+
+This implementation will at least be compatible with the following runtime environments:
+
+* Node.js
+* ECMAScript 2018 in all modern browsers
+* GraalVM (Graal.js)
+
+Please note that this list is not carved in stone, and we might support other JavaScript runtimes, such as Deno and Carakan.
+
+== Description
+
+AsciiDoc is a comprehensive, semantic markup language for producing a variety of presentation-rich output formats from content encoded in a concise, human-readable, plain text format.
+The JavaScript implementation will include a set of APIs for transforming the encoded content, extending the syntax/grammar and processor lifecycle, and integrating with tools and publishing platforms.
+It will use the type system available in the JavaScript ecosystem to define strongly-typed APIs as recommended by the specification
+
+== Project Scheduling
+
+This project will follow the specification scheduling, but we plan to focus first on the following set of “core” functionalities:
+
+. Define the Document Object Model (DOM)
+. Parse the AsciiDoc syntax at a block level (i.e, leave text and inline elements as uninterpreted text)
+. Parse inline elements using an inline parser (likely using a recursive descent parser)
+. Develop the load API
+. Produce an Abstract Semantic Graph (ASG) exported as JSON to be validated by the Technology Compatibility Kit (TCK)
+
+We intend to implement the parser in two phases to iterate faster and get early feedback.
+The converter API, CLI, and extension API will come in a subsequent phase, unless mandated sooner by the specification.
+
+== Licenses
+
+MPL-2.0

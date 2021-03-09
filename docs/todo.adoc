@@ -1,0 +1,12 @@
+= TODO
+
+* [ ] Setup project infrastructure
+* [ ] Define an experimental Abstract Semantic Graph (ASG) as a TypeScript declaration file (type definitions)
+* [ ] Gather work from previous implementations
+** https://github.com/opendevise/textlint-plugin-asciidoc
+** https://github.com/mogztter/asciidoctor-inline-parser
+** https://github.com/asciidoctor/asciidoctor.js
+** https://github.com/asciidoctor/asciidoctor
+* [ ] Setup tests based on the ASG
+* [ ] Explore and experiment with https://tomassetti.me/parsing-in-javascript/[JavaScript parser libraries]
+** [ ] Benchmark (performance, maintenance, capabilities....)
