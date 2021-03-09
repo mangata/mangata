@@ -1,0 +1,37 @@
+{
+  "header": {
+    "title": "Document Title",
+    "raw": "= Document Title\nGuillaume Grossetie\n:key: value",
+    "authors": [
+      {
+        "name": "Guillaume Grossetie"
+      }
+    ],
+    "attributes": [
+      {
+        "key": "key",
+        "value": "value"
+      }
+    ]
+  },
+  "body": [
+    {
+      "type": "Paragraph",
+      "raw": "This is {key}.",
+      "children": [
+        {
+          "type": "Str",
+          "raw": "This is "
+        },
+        {
+          "type": "AttributeReference",
+          "raw": "{key}"
+        },
+        {
+          "type": "Str",
+          "raw": "."
+        }
+      ]
+    }
+  ]
+}

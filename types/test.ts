@@ -1,0 +1,3 @@
+import type { AsciiDocAbstractSemanticGraph } from "./index";
+
+// ...
