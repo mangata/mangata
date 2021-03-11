@@ -1,3 +1,9 @@
+export namespace AsciiDoc {
+  interface Attributes {
+    [key: string]: string
+  }
+}
+
 export namespace AsciiDocAbstractSemanticGraph {
 
   interface Document {
@@ -28,26 +34,36 @@ export namespace AsciiDocAbstractSemanticGraph {
 
   interface Node {
     type: NodeType;
-    raw: string;
-    range: NodeRange;
-    loc: NodeLineLocation;
-    attributes?: Attributes;
+    attributes?: AsciiDoc.Attributes;
     children?: Node[]
-  }
-
-  interface Attributes {
-    [key: string]: string
   }
 
   type NodeType = 'Preamble' | 'Paragraph' | 'Section'
     | 'Verse' | 'STEM' | 'Sidebar' | 'Quote' | 'Open' | 'Example' | 'Listing' | 'Literal' | 'Admonition' | 'Image' | 'Video' | 'Audio' | 'Pass'
-    | 'AttributeReference' | 'AttributeDefinition'
+    // Attributes are already resolved in an Abstract Semantic Graph
+    //| 'AttributeReference' | 'AttributeDefinition'
     | 'Strong' | 'Emphasis' | 'Monospace' | 'Subscript' | 'Superscript' | 'SingleQuotation' | 'DoubleQuotation' | 'Str'
     | 'Anchor'
     | 'OrderedList' | 'UnorderedList' | 'DescriptionList'
     | 'InlineImage' | 'InlineBreak' | 'InlineButton' | 'InlineMenu' | 'InlineMacro'
     | 'Table';
+}
 
+/**
+ * Syntax tree.
+ */
+export namespace AsciiDocSyntaxTree {
+
+  interface Node {
+    type: string;
+    raw: string;
+    range: NodeRange;
+    loc: NodeLineLocation;
+    attributes?: AsciiDoc.Attributes;
+    children?: Node[]
+  }
+
+  // 0-based index
   type NodeRange = [number, number];
 
   /**
@@ -67,5 +83,3 @@ export namespace AsciiDocAbstractSemanticGraph {
     column: number; // start with 1
   }
 }
-
-

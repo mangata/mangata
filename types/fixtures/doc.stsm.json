@@ -1,0 +1,92 @@
+{
+  "header": {
+    "title": "Document Title",
+    "raw": "= Document Title\nGuillaume Grossetie\n:key: value",
+    "range": [0, 48],
+    "loc": {
+      "start": {
+        "line": 1,
+        "column": 1
+      },
+      "end": {
+        "line": 3,
+        "column": 12
+      }
+    },
+    "authors": [
+      {
+        "name": "Guillaume Grossetie"
+      }
+    ],
+    "attributes": {
+      "key": "value"
+    }
+  },
+  "body": [
+    {
+      "type": "Paragraph",
+      "raw": "This is {key}.",
+      "range": [50, 64],
+      "loc": {
+        "start": {
+          "line": 5,
+          "column": 1
+        },
+        "end": {
+          "line": 5,
+          "column": 15
+        }
+      },
+      "children": [
+        {
+          "type": "Str",
+          "raw": "This is ",
+          "value": "This is ",
+          "range": [50, 58],
+          "loc": {
+            "start": {
+              "line": 5,
+              "column": 1
+            },
+            "end": {
+              "line": 5,
+              "column": 9
+            }
+          }
+        },
+        {
+          "type": "AttributeReference",
+          "raw": "{key}",
+          "value": "key",
+          "range": [58, 63],
+          "loc": {
+            "start": {
+              "line": 5,
+              "column": 9
+            },
+            "end": {
+              "line": 5,
+              "column": 14
+            }
+          }
+        },
+        {
+          "type": "Str",
+          "raw": ".",
+          "value": ".",
+          "range": [63, 64],
+          "loc": {
+            "start": {
+              "line": 5,
+              "column": 14
+            },
+            "end": {
+              "line": 5,
+              "column": 15
+            }
+          }
+        }
+      ]
+    }
+  ]
+}

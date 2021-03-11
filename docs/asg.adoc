@@ -1,0 +1,12 @@
+= Abstract Semantic Graph
+
+== Definition
+
+Abstract Semantic Graphs represent only semantically meaningful aspects of the text input.
+Unlike concrete syntax trees which record the complete textual form of the text input.
+
+// reference: https://courses.cs.washington.edu/courses/cse401/08wi/lecture/AST.pdf
+
+== Range and Line Location
+
+
