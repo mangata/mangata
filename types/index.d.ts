@@ -1,75 +1,71 @@
 export namespace AsciiDocAbstractSemanticGraph {
 
-    interface Attribute {
-        key: string;
-        value: string;
-    }
+  interface Document {
+    header?: Header;
+    body: Body;
+  }
 
-    interface Node {
-        type: string;
-        raw: string;
-        range: NodeRange;
-        loc: NodeLineLocation;
-        attributes?: Attribute[];
-        children?: Node[]
-    }
+  interface Header extends Node {
+    title: string;
+    authors?: Author[];
+    revision: Revision;
+  }
 
-    type NodeRange = [number, number];
+  interface Author {
+    name: string;
+    firstname: string;
+    middlename: string;
+    lastname: string;
+    initials: string;
+    email: string;
+  }
 
-    /**
-     * Location
-     */
-    interface NodeLineLocation {
-        start: NodePosition;
-        end: NodePosition;
-    }
+  interface Revision {
+    date: string;
+  }
 
-    /**
-     * Position's line start with 1.
-     * Position's column start with 1.
-     */
-    interface NodePosition {
-        line: number; // start with 1
-        column: number; // start with 1
-    }
+  type Body = Node[];
 
-    interface Author {
-        name: string;
-        firstname: string;
-        middlename: string;
-        lastname: string;
-        initials: string;
-        email: string;
-    }
+  interface Node {
+    type: NodeType;
+    raw: string;
+    range: NodeRange;
+    loc: NodeLineLocation;
+    attributes?: Attributes;
+    children?: Node[]
+  }
 
-    interface Revision {
-        date: string;
-    }
+  interface Attributes {
+    [key: string]: string
+  }
 
-    interface Block extends Node {
+  type NodeType = 'Preamble' | 'Paragraph' | 'Section'
+    | 'Verse' | 'STEM' | 'Sidebar' | 'Quote' | 'Open' | 'Example' | 'Listing' | 'Literal' | 'Admonition' | 'Image' | 'Video' | 'Audio' | 'Pass'
+    | 'AttributeReference' | 'AttributeDefinition'
+    | 'Strong' | 'Emphasis' | 'Monospace' | 'Subscript' | 'Superscript' | 'SingleQuotation' | 'DoubleQuotation' | 'Str'
+    | 'Anchor'
+    | 'OrderedList' | 'UnorderedList' | 'DescriptionList'
+    | 'InlineImage' | 'InlineBreak' | 'InlineButton' | 'InlineMenu' | 'InlineMacro'
+    | 'Table';
 
-    }
+  type NodeRange = [number, number];
 
-    interface Str extends Node {
+  /**
+   * Location
+   */
+  interface NodeLineLocation {
+    start: NodePosition;
+    end: NodePosition;
+  }
 
-    }
-
-    interface Paragraph extends Block {
-
-    }
-
-    interface Header extends Node {
-        title: string;
-        authors?: Author[];
-        revision: Revision;
-    }
-
-    type Body = Node[];
-
-    interface Document {
-        header?: Header;
-        body: Body;
-    }
+  /**
+   * Position's line start with 1.
+   * Position's column start with 1.
+   */
+  interface NodePosition {
+    line: number; // start with 1
+    column: number; // start with 1
+  }
 }
 
 

@@ -1,0 +1,42 @@
+{
+  "body": [
+    {
+      "type": "Section",
+      "raw": "[key=value]\n== Section Title\n\n:key: value\n\n[key=value]\nThis is {key}.",
+      "level": "1",
+      "title": "Section Title",
+      "attributes": {
+        "key": "value"
+      },
+      "children": [
+        {
+          "type": "AttributeDefinition",
+          "raw": ":key: value",
+          "key": "key",
+          "value": "value"
+        },
+        {
+          "type": "Paragraph",
+          "raw": "This is {key}.",
+          "attributes": {
+            "key": "value"
+          },
+          "children": [
+            {
+              "type": "Str",
+              "raw": "This is "
+            },
+            {
+              "type": "AttributeReference",
+              "raw": "{key}"
+            },
+            {
+              "type": "Str",
+              "raw": "."
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

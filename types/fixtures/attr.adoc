@@ -1,0 +1,7 @@
+[key=value]
+== Section
+
+:key: value
+
+[key=value]
+This is {key}.
