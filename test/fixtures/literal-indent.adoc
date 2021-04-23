@@ -1,0 +1,7 @@
+ $ npm i textlint-plugin-asciidoc
+
+.Install dependencies
+ $ npm ci
+
+// using a tab character
+	$ npm run start

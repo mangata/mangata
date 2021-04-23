@@ -1,0 +1,5 @@
+----
+This is a _delimited listing block_.
+
+The content inside is displayed as <pre> text.
+----
