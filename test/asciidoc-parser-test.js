@@ -1,13 +1,15 @@
 'use strict'
 
-const assert = require('assert')
-const chai = require('chai')
-const fs = require('fs').promises
-const path = require('path')
-const AsciiDocParser = require('../lib')
+import assert from 'assert'
+import chai from 'chai'
+import { promises as fs } from 'fs'
+import path from 'path'
+import { fileURLToPath } from 'url'
+import AsciiDocParser from '../lib/index.js'
 
-const AsciidoctorEngine = require('../lib/engines/asciidoctor')
-const TextlintEngine = require('../lib/engines/textlint')
+const __dirname = path.dirname(fileURLToPath(import.meta.url))
+import AsciidoctorEngine from '../lib/engines/asciidoctor/index.js'
+import TextlintEngine from '../lib/engines/textlint/index.js'
 
 const engines = [
   {
@@ -28,6 +30,15 @@ for (const engine of engines) {
           assert.equal(result.type, 'Document')
           assert.equal(result.raw, '')
           assert.deepEqual(result.children, [])
+        })
+        it('should create DelimitedBlock for each sibling delimited block of different type', async () => {
+          const result = parseFixture(await loadFixture('different-blocks.adoc'))
+          assert.equal(result.children.length, 2)
+          result.children.forEach((block) => {
+            assert.equal(block.type, 'DelimitedBlock')
+            assert.equal(block.children.length, 1)
+            assert.equal(block.children[0].type, 'Paragraph')
+          })
         })
       })
 

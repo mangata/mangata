@@ -2,7 +2,11 @@
   "name": "mangata",
   "version": "0.0.0",
   "description": "A JavaScript implementation of the AsciiDoc specification",
+  "type": "module",
   "main": "index.js",
+  "engines": {
+    "node": ">= 14"
+  },
   "scripts": {
     "test": "mocha test/*-test.js"
   },
