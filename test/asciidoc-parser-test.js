@@ -10,6 +10,7 @@ import AsciiDocParser from '../lib/index.js'
 const __dirname = path.dirname(fileURLToPath(import.meta.url))
 import AsciidoctorEngine from '../lib/engines/asciidoctor/index.js'
 import TextlintEngine from '../lib/engines/textlint/index.js'
+import ChevrotainEngine from '../lib/engines/chevrotain/index.js'
 
 const engines = [
   {
@@ -19,6 +20,10 @@ const engines = [
   {
     name: 'Textlint',
     processor: new TextlintEngine()
+  },
+  {
+    name: 'Chevrotain',
+    processor: new ChevrotainEngine()
   }
 ]
 for (const engine of engines) {
