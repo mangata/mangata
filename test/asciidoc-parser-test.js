@@ -12,6 +12,9 @@ import AsciidoctorEngine from '../lib/engines/asciidoctor/index.js'
 import TextlintEngine from '../lib/engines/textlint/index.js'
 import ChevrotainEngine from '../lib/engines/chevrotain/index.js'
 
+import util from 'util'
+util.inspect.defaultOptions.depth = null
+
 const engines = [
   {
     name: 'Asciidoctor',
@@ -44,6 +47,14 @@ for (const engine of engines) {
             assert.equal(block.children.length, 1)
             assert.equal(block.children[0].type, 'Paragraph')
           })
+        })
+        it('should create listing blocks', async () => {
+          const result = parseFixture(await loadFixture('listing-block.adoc'))
+          // fixme: write assertions
+        })
+        it('should create nested blocks', async () => {
+          const result = parseFixture(await loadFixture('nested-blocks.adoc'))
+          // fixme: write assertions
         })
       })
 
