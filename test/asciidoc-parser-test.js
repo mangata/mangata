@@ -7,7 +7,6 @@ import { fileURLToPath } from 'url'
 import AsciiDocParser from '../lib/index.js'
 import AsciidoctorEngine from '../lib/engines/asciidoctor/index.js'
 import TextlintEngine from '../lib/engines/textlint/index.js'
-import ChevrotainEngine from '../lib/engines/chevrotain/index.js'
 
 import util from 'util'
 
@@ -22,10 +21,6 @@ const engines = [
   {
     name: 'Textlint',
     processor: new TextlintEngine()
-  },
-  {
-    name: 'Chevrotain',
-    processor: new ChevrotainEngine()
   }
 ]
 for (const engine of engines) {

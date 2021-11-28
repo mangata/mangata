@@ -16,10 +16,9 @@
   "author": "Guillaume Grossetie",
   "license": "MPL-2.0",
   "devDependencies": {
-    "@asciidoctor/core": "^2.2.4-rc.1",
+    "@asciidoctor/core": "^2.2.5",
     "assert": "^2.0.0",
     "chai": "^4.3.4",
-    "chevrotain": "^9.0.1",
     "dirty-chai": "^2.0.1",
     "mocha": "^8.3.2"
   }
