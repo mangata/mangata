@@ -1,0 +1,27 @@
+{
+  "body": [
+    {
+      "type": "Listing",
+      "children": [
+        {
+          "type": "Str",
+          "value": "====\nLet me show you the way.\n===="
+        }
+      ]
+    },
+    {
+      "type": "Example",
+      "children": [
+        {
+          "type": "Listing",
+          "children": [
+            {
+              "type": "Str",
+              "value": "Let's go on a little trip."
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

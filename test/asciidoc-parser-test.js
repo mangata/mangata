@@ -1,5 +1,6 @@
 'use strict'
 
+import 'mocha'
 import assert from 'assert'
 import { promises as fs } from 'fs'
 import path from 'path'
@@ -26,47 +27,33 @@ const engines = [
 for (const engine of engines) {
   describe(`Engine ${engine.name}`, () => {
     describe('AsciiDocParser', () => {
-      context('DocumentNode', () => {
+      describe('Blocks', () => {
         it('should create sparse DocumentNode from empty document', async () => {
-          const result = parseFixture(await loadFixture('empty.adoc'))
-          assert.deepEqual(result, {
-            body: []
-          })
+          return assertDeepEqual('empty')
         })
         it('should create DelimitedBlock for each sibling delimited block of different type', async () => {
-          const result = parseFixture(await loadFixture('different-blocks.adoc'))
-          assert.deepEqual(result, {
-            body: [
-              {
-                type: 'Example',
-                children: [
-                  {
-                    type: 'Paragraph',
-                    value: 'Let me show you the way.'
-                  }
-                ]
-              },
-              {
-                type: 'Sidebar',
-                children: [
-                  {
-                    type: 'Paragraph',
-                    value: 'Let\'s go on a little trip.'
-                  }
-                ]
-              }
-            ]
-          })
+          return assertDeepEqual('different-blocks')
         })
         it('should create listing blocks', async () => {
-          //const result = parseFixture(await loadFixture('listing-block.adoc'))
-          // fixme: write assertions
+          return assertDeepEqual('listing-block')
         })
         it('should create nested blocks', async () => {
-          //const result = parseFixture(await loadFixture('nested-blocks.adoc'))
-          // fixme: write assertions
+          return assertDeepEqual('nested-blocks')
+        })
+        it('should create a single line paragraph block', async () => {
+          return assertDeepEqual('paragraph-single-line')
+        })
+        it('should create a section block', async () => {
+          return assertDeepEqual('section')
         })
       })
+
+      const assertDeepEqual = async (fixtureName) => {
+        const input = await loadFixture(`${fixtureName}.adoc`)
+        const expected = JSON.parse((await loadFixture(`${fixtureName}.expected.asg.json`)).contents)
+        const result = parseFixture(input)
+        assert.deepEqual(result, expected)
+      }
 
       const parseFixture = (fixture) => new AsciiDocParser(engine.processor).parse(fixture.contents)
 

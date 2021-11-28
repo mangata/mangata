@@ -1,0 +1,13 @@
+{
+  "body": [
+    {
+      "type": "Listing",
+      "children": [
+        {
+          "type": "Str",
+          "value": "Foo.\nBar."
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,22 @@
+{
+  "body": [
+    {
+      "type": "Example",
+      "children": [
+        {
+          "type": "Paragraph",
+          "value": "Let me show you the way."
+        }
+      ]
+    },
+    {
+      "type": "Sidebar",
+      "children": [
+        {
+          "type": "Paragraph",
+          "value": "Let's go on a little trip."
+        }
+      ]
+    }
+  ]
+}
