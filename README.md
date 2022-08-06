@@ -1,5 +1,7 @@
 # Mangata: An AsciiDoc JavaScript Implementation
 
+[![CI](https://github.com/mangata/mangata/actions/workflows/ci.yml/badge.svg)](https://github.com/mangata/mangata/actions/workflows/ci.yml)
+
 Mangata is a JavaScript implementation of the AsciiDoc Language Specification.
 
 **CAUTION:** This project is a work in progress.
