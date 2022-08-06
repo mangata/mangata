@@ -1,0 +1,15 @@
+{
+  "header": {
+    "title": "Document Title"
+  },
+  "body": [
+    {
+      "type": "Paragraph",
+      "value": "First line."
+    },
+    {
+      "type": "Paragraph",
+      "value": "Another line."
+    }
+  ]
+}

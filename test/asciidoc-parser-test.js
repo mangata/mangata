@@ -58,6 +58,11 @@ for (const engine of engines) {
           return assertDeepEqual('paragraph-multiline')
         })
       })
+      describe('Document', () => {
+        it('should create a sample document', async () => {
+          return assertDeepEqual('sample')
+        })
+      })
 
       const assertDeepEqual = async (fixtureName) => {
         const input = await loadFixture(`${fixtureName}.adoc`)

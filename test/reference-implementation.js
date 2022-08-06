@@ -5,6 +5,11 @@ const asciidoctor = Asciidoctor()
 function toDocumentObjectModel(doc, text) {
   const children = doc.getBlocks().map((block) => toNode(block))
   return {
+    ...(doc.hasHeader() && {
+      header: {
+        title: doc.getDocumentTitle()
+      }
+    }),
     body: children
   }
 }
