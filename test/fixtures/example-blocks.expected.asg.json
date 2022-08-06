@@ -1,0 +1,31 @@
+{
+  "body": [
+    {
+      "type": "Example",
+      "children": [
+        {
+          "type": "Paragraph",
+          "value": "Make an example of me."
+        }
+      ]
+    },
+    {
+      "type": "Example",
+      "children": [
+        {
+          "type": "Paragraph",
+          "value": "Let me show you the way."
+        }
+      ]
+    },
+    {
+      "type": "Example",
+      "children": [
+        {
+          "type": "Paragraph",
+          "value": "Don't try this at home."
+        }
+      ]
+    }
+  ]
+}

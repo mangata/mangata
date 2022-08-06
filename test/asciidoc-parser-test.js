@@ -51,6 +51,9 @@ for (const engine of engines) {
         it('should create an example block', async () => {
           return assertDeepEqual('example-block')
         })
+        it('should create example blocks', async () => {
+          return assertDeepEqual('example-blocks')
+        })
       })
 
       const assertDeepEqual = async (fixtureName) => {
