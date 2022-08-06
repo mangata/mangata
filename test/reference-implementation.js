@@ -29,7 +29,9 @@ function toNode(block) {
   if (block.getNodeName() === 'paragraph') {
     return {
       type,
-      value: block.getContent().replace('&#8217;', '\'')
+      value: block.getContent()
+        // revert replacements
+        .replaceAll('&#8217;', '\'')
     }
   }
   if (block.getNodeName() === 'section') {
