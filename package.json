@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "description": "A JavaScript implementation of the AsciiDoc specification",
   "type": "module",
-  "main": "index.js",
+  "main": "lib/index.js",
   "engines": {
     "node": ">= 14"
   },

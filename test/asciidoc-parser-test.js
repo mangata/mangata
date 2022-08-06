@@ -5,9 +5,8 @@ import assert from 'assert'
 import { promises as fs } from 'fs'
 import path from 'path'
 import { fileURLToPath } from 'url'
-import AsciiDocParser from '../lib/index.js'
-import AsciidoctorEngine from '../lib/engines/asciidoctor/index.js'
-import TextlintEngine from '../lib/engines/textlint/index.js'
+import MangataParser from '../lib/index.js'
+import AsciidoctorEngine from './reference-implementation.js'
 
 import util from 'util'
 
@@ -20,8 +19,8 @@ const engines = [
     processor: new AsciidoctorEngine()
   },
   {
-    name: 'Textlint',
-    processor: new TextlintEngine()
+    name: 'Mangata',
+    processor: new MangataParser()
   }
 ]
 for (const engine of engines) {
@@ -58,7 +57,7 @@ for (const engine of engines) {
         assert.deepEqual(result, expected)
       }
 
-      const parseFixture = (fixture) => new AsciiDocParser(engine.processor).parse(fixture.contents)
+      const parseFixture = (fixture) => engine.processor.parse(fixture.contents)
 
       const loadFixture = async (filename) => {
         const fixturePath = path.join(__dirname, 'fixtures', filename)
