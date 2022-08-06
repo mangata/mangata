@@ -1,0 +1,13 @@
+{
+  "body": [
+    {
+      "type": "Example",
+      "children": [
+        {
+          "type": "Paragraph",
+          "value": "Make an example of me."
+        }
+      ]
+    }
+  ]
+}

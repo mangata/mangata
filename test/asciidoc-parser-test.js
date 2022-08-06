@@ -48,6 +48,9 @@ for (const engine of engines) {
         it('should create a verbatim block', async () => {
           return assertDeepEqual('verbatim-block')
         })
+        it('should create an example block', async () => {
+          return assertDeepEqual('example-block')
+        })
       })
 
       const assertDeepEqual = async (fixtureName) => {
