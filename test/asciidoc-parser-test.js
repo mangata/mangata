@@ -45,6 +45,9 @@ for (const engine of engines) {
         it('should create a section block', async () => {
           return assertDeepEqual('section')
         })
+        it('should create section blocks', async () => {
+          return assertDeepEqual('sections')
+        })
         it('should create a verbatim block', async () => {
           return assertDeepEqual('verbatim-block')
         })

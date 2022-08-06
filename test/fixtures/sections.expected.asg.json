@@ -1,0 +1,37 @@
+{
+  "body": [
+    {
+      "type": "Section",
+      "title": "Introduction",
+      "level": 1,
+      "children": [
+        {
+          "type": "Paragraph",
+          "value": "This document is a good thing."
+        }
+      ]
+    },
+    {
+      "type": "Section",
+      "title": "Main Points",
+      "level": 1,
+      "children": [
+        {
+          "type": "Paragraph",
+          "value": "It tells you things you need to know."
+        }
+      ]
+    },
+    {
+      "type": "Section",
+      "title": "Conclusion",
+      "level": 1,
+      "children": [
+        {
+          "type": "Paragraph",
+          "value": "But like all good things, it must come to an end."
+        }
+      ]
+    }
+  ]
+}
