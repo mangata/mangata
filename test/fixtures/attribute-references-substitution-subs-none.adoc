@@ -1,0 +1,4 @@
+:name: Guillaume
+
+[subs=none]
+Hello {name}!

@@ -66,6 +66,29 @@ for (const engine of engines) {
           return assertDeepEqual('sample')
         })
       })
+      describe('Attribute References Substitution', () => {
+        it('should substitute attribute reference', async () => {
+          return assertDeepEqual('attribute-references-substitution')
+        })
+        it('should not substitute when the value is escaped', async () => {
+          return assertDeepEqual('attribute-references-substitution-escape')
+        })
+        it('should substitute with the latest value', async () => {
+          return assertDeepEqual('attribute-references-substitution-redefinition')
+        })
+        it('should not substitute when subs is empty', async () => {
+          return assertDeepEqual('attribute-references-substitution-subs-empty')
+        })
+        it('should not substitute when subs is none', async () => {
+          return assertDeepEqual('attribute-references-substitution-subs-none')
+        })
+        it('should not substitute attributes when "attributes" is removed from subs', async () => {
+          return assertDeepEqual('attribute-references-substitution-subs-remove-attributes')
+        })
+        it('should not substitute when the value is unset', async () => {
+          return assertDeepEqual('attribute-references-substitution-unset')
+        })
+      })
 
       const assertDeepEqual = async (fixtureName) => {
         const input = await loadFixture(`${fixtureName}.adoc`)

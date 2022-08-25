@@ -1,0 +1,4 @@
+:name: Guillaume
+:!name:
+
+Hello {name}!
