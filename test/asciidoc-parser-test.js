@@ -23,9 +23,10 @@ const engines = [
     processor: new MangataParser()
   }
 ]
-for (const engine of engines) {
-  describe(`Engine ${engine.name}`, () => {
-    describe('AsciiDocParser', () => {
+describe('AsciiDocParser', () => {
+  for (const engine of engines) {
+    describe(`Engine ${engine.name}`, () => {
+
       describe('Blocks', () => {
         it('should create sparse DocumentNode from empty document', async () => {
           return assertDeepEqual('empty')
@@ -59,6 +60,21 @@ for (const engine of engines) {
         })
         it('should create a multiline paragraph block', async () => {
           return assertDeepEqual('paragraph-multiline')
+        })
+        it('should create a unordered list block', async () => {
+          return assertDeepEqual('unordered-list')
+        })
+        it('should create a nested unordered list', async () => {
+          return assertDeepEqual('unordered-list-nested')
+        })
+        it('should create a nested unordered list (depth of 5)', async () => {
+          return assertDeepEqual('unordered-list-nested-depth5')
+        })
+        it('should create a nested unordered list (depth of 10)', async () => {
+          return assertDeepEqual('unordered-list-nested-depth10')
+        })
+        it('should create a nested unordered and list (non-contiguous)', async () => {
+          return assertDeepEqual('unordered-list-nested-non-contiguous')
         })
       })
       describe('Document', () => {
@@ -94,7 +110,7 @@ for (const engine of engines) {
         const input = await loadFixture(`${fixtureName}.adoc`)
         const expected = JSON.parse((await loadFixture(`${fixtureName}.expected.asg.json`)).contents)
         const result = parseFixture(input)
-        assert.deepEqual(result, expected)
+        assert.deepStrictEqual(result, expected)
       }
 
       const parseFixture = (fixture) => engine.processor.parse(fixture.contents)
@@ -106,7 +122,7 @@ for (const engine of engines) {
       }
       const getSource = (node, documentNode) => documentNode.raw.slice(node.range)
     })
-  })
-}
+  }
+})
 
 

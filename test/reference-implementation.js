@@ -2,7 +2,7 @@ import Asciidoctor from '@asciidoctor/core'
 
 const asciidoctor = Asciidoctor()
 
-function toDocumentObjectModel(doc, text) {
+function toDocumentObjectModel (doc, text) {
   const children = doc.getBlocks().map((block) => toNode(block))
   return {
     ...(doc.hasHeader() && {
@@ -14,7 +14,7 @@ function toDocumentObjectModel(doc, text) {
   }
 }
 
-function toNode(block) {
+function toNode (block) {
   let type
   if (block.getNodeName() === 'sidebar') {
     type = 'Sidebar'
@@ -28,6 +28,8 @@ function toNode(block) {
     type = 'Verbatim'
   } else if (block.getNodeName() === 'section') {
     type = 'Section'
+  } else if (block.getNodeName() === 'ulist') {
+    type = 'UnorderedList'
   } else {
     type = 'Block'
   }
@@ -47,7 +49,7 @@ function toNode(block) {
       children: block.getBlocks().map((block) => toNode(block))
     }
   }
-  if (block.getNodeName() === 'listing' || block.getNodeName() === 'literal' ) {
+  if (block.getNodeName() === 'listing' || block.getNodeName() === 'literal') {
     return {
       type,
       children: [
@@ -58,6 +60,20 @@ function toNode(block) {
       ]
     }
   }
+  if (block.getNodeName() === 'list_item') {
+    const blocks = block.getBlocks()
+    return {
+      type: 'ListItem',
+      value: block.getText(),
+      ...(blocks.length > 0 ? { children: blocks.map((block) => toNode(block)) } : {})
+    }
+  }
+  if (block.getNodeName() === 'ulist') {
+    return {
+      type,
+      children: block.getBlocks().map((block) => toNode(block))
+    }
+  }
   return {
     type,
     children: block.getBlocks().map((block) => toNode(block))
@@ -65,7 +81,7 @@ function toNode(block) {
 }
 
 export default class AsciidoctorParser {
-  parse(text) {
+  parse (text) {
     const doc = asciidoctor.load(text)
     // fixme: transform doc into a generic DOM
     const result = toDocumentObjectModel(doc, text)
