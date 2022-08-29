@@ -1,0 +1,61 @@
+{
+  "body": [
+    {
+      "type": "UnorderedList",
+      "children": [
+        {
+          "type": "ListItem",
+          "value": "First level 1 list item",
+          "children": [
+            {
+              "type": "UnorderedList",
+              "children": [
+                {
+                  "type": "ListItem",
+                  "value": "Level 2 list item",
+                  "children": [
+                    {
+                      "type": "UnorderedList",
+                      "children": [
+                        {
+                          "type": "ListItem",
+                          "value": "Level 3 list item",
+                          "children": [
+                            {
+                              "type": "UnorderedList",
+                              "children": [
+                                {
+                                  "type": "ListItem",
+                                  "value": "Level 4 list item",
+                                  "children": [
+                                    {
+                                      "type": "UnorderedList",
+                                      "children": [
+                                        {
+                                          "type": "ListItem",
+                                          "value": "Level 5 list item"
+                                        }
+                                      ]
+                                    }
+                                  ]
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "ListItem",
+          "value": "Second level 1 list item"
+        }
+      ]
+    }
+  ]
+}

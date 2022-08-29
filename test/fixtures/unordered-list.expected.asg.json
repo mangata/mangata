@@ -1,0 +1,21 @@
+{
+  "body": [
+    {
+      "type": "UnorderedList",
+      "children": [
+        {
+          "type": "ListItem",
+          "value": "Edgar Allan Poe"
+        },
+        {
+          "type": "ListItem",
+          "value": "Sheri S. Tepper"
+        },
+        {
+          "type": "ListItem",
+          "value": "Bill Bryson"
+        }
+      ]
+    }
+  ]
+}
