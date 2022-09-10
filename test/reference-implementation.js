@@ -2,19 +2,19 @@ import Asciidoctor from '@asciidoctor/core'
 
 const asciidoctor = Asciidoctor()
 
-function toDocumentObjectModel (doc, text) {
+function toDocumentObjectModel(doc, text) {
   const children = doc.getBlocks().map((block) => toNode(block))
   return {
     ...(doc.hasHeader() && {
       header: {
-        title: doc.getDocumentTitle()
-      }
+        title: doc.getDocumentTitle(),
+      },
     }),
-    body: children
+    body: children,
   }
 }
 
-function toNode (block) {
+function toNode(block) {
   let type
   if (block.getNodeName() === 'sidebar') {
     type = 'Sidebar'
@@ -36,9 +36,10 @@ function toNode (block) {
   if (block.getNodeName() === 'paragraph') {
     return {
       type,
-      value: block.getContent()
+      value: block
+        .getContent()
         // revert replacements
-        .replaceAll('&#8217;', '\'')
+        .replaceAll('&#8217;', "'"),
     }
   }
   if (block.getNodeName() === 'section') {
@@ -46,7 +47,7 @@ function toNode (block) {
       type,
       title: block.getTitle(),
       level: block.getLevel(),
-      children: block.getBlocks().map((block) => toNode(block))
+      children: block.getBlocks().map((block) => toNode(block)),
     }
   }
   if (block.getNodeName() === 'listing' || block.getNodeName() === 'literal') {
@@ -55,9 +56,9 @@ function toNode (block) {
       children: [
         {
           type: 'Str',
-          value: block.lines.join('\n')
-        }
-      ]
+          value: block.lines.join('\n'),
+        },
+      ],
     }
   }
   if (block.getNodeName() === 'list_item') {
@@ -65,23 +66,23 @@ function toNode (block) {
     return {
       type: 'ListItem',
       value: block.getText(),
-      ...(blocks.length > 0 ? { children: blocks.map((block) => toNode(block)) } : {})
+      ...(blocks.length > 0 ? { children: blocks.map((block) => toNode(block)) } : {}),
     }
   }
   if (block.getNodeName() === 'ulist') {
     return {
       type,
-      children: block.getBlocks().map((block) => toNode(block))
+      children: block.getBlocks().map((block) => toNode(block)),
     }
   }
   return {
     type,
-    children: block.getBlocks().map((block) => toNode(block))
+    children: block.getBlocks().map((block) => toNode(block)),
   }
 }
 
 export default class AsciidoctorParser {
-  parse (text) {
+  parse(text) {
     const doc = asciidoctor.load(text)
     // fixme: transform doc into a generic DOM
     const result = toDocumentObjectModel(doc, text)
