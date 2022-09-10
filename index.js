@@ -1,1 +1,1 @@
-console.log("Mangata")
+console.log('Mangata')

@@ -16,17 +16,16 @@ util.inspect.defaultOptions.depth = null
 const engines = [
   {
     name: 'Asciidoctor',
-    processor: new AsciidoctorEngine()
+    processor: new AsciidoctorEngine(),
   },
   {
     name: 'Mangata',
-    processor: new MangataParser()
-  }
+    processor: new MangataParser(),
+  },
 ]
 describe('AsciiDocParser', () => {
   for (const engine of engines) {
     describe(`Engine ${engine.name}`, () => {
-
       describe('Blocks', () => {
         it('should create sparse DocumentNode from empty document', async () => {
           return assertDeepEqual('empty')
@@ -124,5 +123,3 @@ describe('AsciiDocParser', () => {
     })
   }
 })
-
-

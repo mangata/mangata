@@ -7,8 +7,14 @@
   "engines": {
     "node": ">= 16"
   },
+  "lint-staged": {
+    "**/*": "prettier --write --ignore-unknown"
+  },
   "scripts": {
-    "test": "mocha test/*-test.js"
+    "test": "mocha test/*-test.js",
+    "lint-check": "prettier --check .",
+    "lint-fix": "prettier --write .",
+    "prepare": "husky install"
   },
   "keywords": [
     "asciidoc"
@@ -20,6 +26,9 @@
     "assert": "~2.0",
     "chai": "~4.3",
     "dirty-chai": "~2.0",
-    "mocha": "~10.0"
+    "husky": "^8.0.1",
+    "lint-staged": "^13.0.3",
+    "mocha": "~10.0",
+    "prettier": "2.7.1"
   }
 }
