@@ -1,0 +1,14 @@
+{
+  "body": [
+    {
+      "type": "Example",
+      "id": "the-id-of-this-block",
+      "children": [
+        {
+          "type": "Paragraph",
+          "value": "Content of delimited example block"
+        }
+      ]
+    }
+  ]
+}

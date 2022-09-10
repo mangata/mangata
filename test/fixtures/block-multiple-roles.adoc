@@ -1,0 +1,4 @@
+[.role1.role2]
+****
+This is a sidebar with two roles assigned to it, role1 and role2.
+****
