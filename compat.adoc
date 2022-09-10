@@ -1,1 +1,16 @@
-= Compatibility matrix with Asciidoctor
+= AsciiDoc Compatibility Matrix
+
+The list of features is taken from the table of contents of the [AsciiDoc documentation](https://docs.asciidoctor.org/asciidoc/latest/).
+
+When a formal specification of AsciiDoc will be available, this page will be updated to reflect the structure and contents of the specification.
+
+
+== Blocks
+
+[cols=3,opts=header]
+|===
+|Feature
+|Support
+|Notes
+
+|===
