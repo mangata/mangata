@@ -30,8 +30,20 @@ function toNode(block) {
     type = 'Section'
   } else if (block.getNodeName() === 'ulist') {
     type = 'UnorderedList'
+  } else if (block.getNodeName() === 'quote') {
+    type = 'Quote'
   } else {
     type = 'Block'
+  }
+  if (block['$content_model']() === 'simple') {
+    return {
+      type,
+      ...(block.getId() && { id: block.getId() }),
+      value: block
+        .getContent()
+        // revert replacements
+        .replaceAll('&#8217;', "'"),
+    }
   }
   if (block.getNodeName() === 'paragraph') {
     return {
@@ -77,6 +89,7 @@ function toNode(block) {
   }
   return {
     type,
+    ...(block.getId() && { id: block.getId() }),
     children: block.getBlocks().map((block) => toNode(block)),
   }
 }

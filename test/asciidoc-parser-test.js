@@ -33,7 +33,13 @@ describe('AsciiDocParser', () => {
         it('should create DelimitedBlock for each sibling delimited block of different type', async () => {
           return assertDeepEqual('different-blocks')
         })
-        it('should create listing blocks', async () => {
+        it('should create a block with an id', async () => {
+          return assertDeepEqual('block-id')
+        })
+        it('should create a block with a style and an id', async () => {
+          return assertDeepEqual('block-style-id')
+        })
+        it('should create listing block', async () => {
           return assertDeepEqual('listing-block')
         })
         it('should create nested blocks', async () => {
