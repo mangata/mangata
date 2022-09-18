@@ -5,7 +5,7 @@
       "children": [
         {
           "type": "Paragraph",
-          "value": "Make an example of me."
+          "lines": ["Make an example of me."]
         }
       ]
     }

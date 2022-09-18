@@ -5,7 +5,7 @@
       "children": [
         {
           "type": "Paragraph",
-          "value": "Let me show you the way."
+          "lines": ["Let me show you the way."]
         }
       ]
     },
@@ -14,7 +14,7 @@
       "children": [
         {
           "type": "Paragraph",
-          "value": "Let's go on a little trip."
+          "lines": ["Let's go on a little trip."]
         }
       ]
     }

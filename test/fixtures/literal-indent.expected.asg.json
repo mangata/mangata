@@ -1,0 +1,34 @@
+{
+  "body": [
+    {
+      "type": "Literal",
+      "children": [
+        {
+          "type": "Str",
+          "lines": ["$ npm i textlint-plugin-asciidoc"]
+        }
+      ]
+    },
+    {
+      "type": "Literal",
+      "attributes": {
+        "title": "Install dependencies"
+      },
+      "children": [
+        {
+          "type": "Str",
+          "lines": ["$ npm ci"]
+        }
+      ]
+    },
+    {
+      "type": "Literal",
+      "children": [
+        {
+          "type": "Str",
+          "lines": ["$ npm run start"]
+        }
+      ]
+    }
+  ]
+}

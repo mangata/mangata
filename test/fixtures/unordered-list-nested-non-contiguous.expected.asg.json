@@ -5,28 +5,28 @@
       "children": [
         {
           "type": "ListItem",
-          "value": "Level 1 list item",
+          "lines": ["Level 1 list item"],
           "children": [
             {
               "type": "UnorderedList",
               "children": [
                 {
                   "type": "ListItem",
-                  "value": "Level 2 list item",
+                  "lines": ["Level 2 list item"],
                   "children": [
                     {
                       "type": "UnorderedList",
                       "children": [
                         {
                           "type": "ListItem",
-                          "value": "Level 3 list item",
+                          "lines": ["Level 3 list item"],
                           "children": [
                             {
                               "type": "UnorderedList",
                               "children": [
                                 {
                                   "type": "ListItem",
-                                  "value": "Level 4 list item"
+                                  "lines": ["Level 4 list item"]
                                 }
                               ]
                             }

@@ -1,0 +1,4 @@
+[source,kotlin,data-lang-family=compiled]
+----
+println("Hello world")
+----
