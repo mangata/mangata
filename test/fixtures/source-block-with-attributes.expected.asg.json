@@ -2,10 +2,10 @@
   "body": [
     {
       "type": "Listing",
-      "style": "source",
       "attributes": {
         "language": "kotlin",
-        "data-lang-family": "compiled"
+        "data-lang-family": "compiled",
+        "style": "source"
       },
       "children": [
         {

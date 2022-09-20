@@ -49,17 +49,15 @@ function toNode(block) {
     }
   }
   if (block.getNodeName() === 'listing' || block.getNodeName() === 'literal') {
+    const attributes = block.getAttributes()
     let style = block.getStyle()
     if (style === block.getNodeName()) {
-      style = undefined
+      delete attributes.style
     }
-    const title = block.getTitle()
-    const attributes = block.getAttributes()
+    //const title = block.getTitle()
     delete attributes['$positional']
-    delete attributes['style']
     return {
       type,
-      ...(style && { style }),
       ...(Object.keys(attributes).length > 0 && { attributes }),
       children: [
         {
