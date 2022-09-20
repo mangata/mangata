@@ -1,0 +1,18 @@
+{
+  "body": [
+    {
+      "type": "Listing",
+      "attributes": {
+        "language": "kotlin",
+        "data-lang-family": "compiled",
+        "style": "source"
+      },
+      "children": [
+        {
+          "type": "Str",
+          "lines": ["println(\"Hello world\")"]
+        }
+      ]
+    }
+  ]
+}

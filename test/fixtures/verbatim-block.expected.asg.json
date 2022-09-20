@@ -1,11 +1,11 @@
 {
   "body": [
     {
-      "type": "Verbatim",
+      "type": "Literal",
       "children": [
         {
           "type": "Str",
-          "value": "Test Results:\n\n  All passing.\n\nScore!"
+          "lines": ["Test Results:", "", "  All passing.", "", "Score!"]
         }
       ]
     }

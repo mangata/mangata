@@ -7,7 +7,7 @@
       "children": [
         {
           "type": "Paragraph",
-          "value": "This document is a good thing."
+          "lines": ["This document is a good thing."]
         }
       ]
     },
@@ -18,7 +18,7 @@
       "children": [
         {
           "type": "Paragraph",
-          "value": "It tells you things you need to know."
+          "lines": ["It tells you things you need to know."]
         }
       ]
     },
@@ -29,7 +29,7 @@
       "children": [
         {
           "type": "Paragraph",
-          "value": "But like all good things, it must come to an end."
+          "lines": ["But like all good things, it must come to an end."]
         }
       ]
     }

@@ -2,10 +2,13 @@
   "body": [
     {
       "type": "Example",
+      "attributes": {
+        "id": "the-id-of-this-block"
+      },
       "children": [
         {
           "type": "Paragraph",
-          "lines": ["Make an example of me."]
+          "lines": ["Content of delimited example block"]
         }
       ]
     }

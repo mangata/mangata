@@ -2,7 +2,7 @@
   "body": [
     {
       "type": "Paragraph",
-      "value": "You don't know about me without you have read a book by the name of The Adventures of Tom Sawyer;\nbut that ain't no matter."
+      "lines": ["You don't know about me without you have read a book by the name of The Adventures of Tom Sawyer; but that ain't no matter."]
     }
   ]
 }

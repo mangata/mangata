@@ -1,0 +1,4 @@
+[#the-id-of-this-block]
+====
+Content of delimited example block
+====

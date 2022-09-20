@@ -5,21 +5,21 @@
       "children": [
         {
           "type": "ListItem",
-          "value": "West wood maze",
+          "lines": ["West wood maze"],
           "children": [
             {
               "type": "UnorderedList",
               "children": [
                 {
                   "type": "ListItem",
-                  "value": "Maze heart",
+                  "lines": ["Maze heart"],
                   "children": [
                     {
                       "type": "UnorderedList",
                       "children": [
                         {
                           "type": "ListItem",
-                          "value": "Reflection pool"
+                          "lines": ["Reflection pool"]
                         }
                       ]
                     }
@@ -27,7 +27,7 @@
                 },
                 {
                   "type": "ListItem",
-                  "value": "Secret exit"
+                  "lines": ["Secret exit"]
                 }
               ]
             }
@@ -35,7 +35,7 @@
         },
         {
           "type": "ListItem",
-          "value": "Untracked file in git repository"
+          "lines": ["Untracked file in git repository"]
         }
       ]
     }

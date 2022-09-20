@@ -5,11 +5,11 @@
   "body": [
     {
       "type": "Paragraph",
-      "value": "First line."
+      "lines": ["First line."]
     },
     {
       "type": "Paragraph",
-      "value": "Another line."
+      "lines": ["Another line."]
     }
   ]
 }

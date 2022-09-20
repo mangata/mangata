@@ -5,15 +5,15 @@
       "children": [
         {
           "type": "ListItem",
-          "value": "Edgar Allan Poe"
+          "lines": ["Edgar Allan Poe"]
         },
         {
           "type": "ListItem",
-          "value": "Sheri S. Tepper"
+          "lines": ["Sheri S. Tepper"]
         },
         {
           "type": "ListItem",
-          "value": "Bill Bryson"
+          "lines": ["Bill Bryson"]
         }
       ]
     }

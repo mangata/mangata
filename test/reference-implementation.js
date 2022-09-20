@@ -25,21 +25,34 @@ function toNode(block) {
   } else if (block.getNodeName() === 'listing') {
     type = 'Listing'
   } else if (block.getNodeName() === 'literal') {
-    type = 'Verbatim'
+    type = 'Literal'
   } else if (block.getNodeName() === 'section') {
     type = 'Section'
   } else if (block.getNodeName() === 'ulist') {
     type = 'UnorderedList'
+  } else if (block.getNodeName() === 'quote') {
+    type = 'Quote'
   } else {
     type = 'Block'
   }
-  if (block.getNodeName() === 'paragraph') {
+  if (block['$content_model']() === 'simple') {
+    const attributes = {}
+    const id = block.getId()
+    if (id) {
+      attributes.id = id
+    }
+    const subs = block.subs.filter((sub) => sub !== 'replacements')
     return {
       type,
-      value: block
-        .getContent()
-        // revert replacements
-        .replaceAll('&#8217;', "'"),
+      ...(Object.keys(attributes).length > 0 && { attributes }),
+      lines: [block.lines.map((l) => block.applySubstitutions(l, subs)).join(' ')],
+    }
+  }
+  if (block.getNodeName() === 'paragraph') {
+    const subs = block.subs.filter((sub) => sub !== 'replacements')
+    return {
+      type,
+      lines: [block.lines.map((l) => block.applySubstitutions(l, subs)).join(' ')],
     }
   }
   if (block.getNodeName() === 'section') {
@@ -51,12 +64,20 @@ function toNode(block) {
     }
   }
   if (block.getNodeName() === 'listing' || block.getNodeName() === 'literal') {
+    const attributes = block.getAttributes()
+    let style = block.getStyle()
+    if (style === block.getNodeName()) {
+      delete attributes.style
+    }
+    //const title = block.getTitle()
+    delete attributes['$positional']
     return {
       type,
+      ...(Object.keys(attributes).length > 0 && { attributes }),
       children: [
         {
           type: 'Str',
-          value: block.lines.join('\n'),
+          lines: block.lines,
         },
       ],
     }
@@ -65,7 +86,7 @@ function toNode(block) {
     const blocks = block.getBlocks()
     return {
       type: 'ListItem',
-      value: block.getText(),
+      lines: [block.getText()],
       ...(blocks.length > 0 ? { children: blocks.map((block) => toNode(block)) } : {}),
     }
   }
@@ -75,8 +96,14 @@ function toNode(block) {
       children: block.getBlocks().map((block) => toNode(block)),
     }
   }
+  const attributes = {}
+  const id = block.getId()
+  if (id) {
+    attributes.id = id
+  }
   return {
     type,
+    ...(Object.keys(attributes).length > 0 && { attributes }),
     children: block.getBlocks().map((block) => toNode(block)),
   }
 }

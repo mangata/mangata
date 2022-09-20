@@ -75,6 +75,18 @@ describe('AsciiDocParser', () => {
         it('should create a nested unordered and list (non-contiguous)', async () => {
           return assertDeepEqual('unordered-list-nested-non-contiguous')
         })
+        it('should create a source block with attributes', async () => {
+          return assertDeepEqual('source-block-with-attributes')
+        })
+        it('should create literal ident blocks', async () => {
+          return assertDeepEqual('literal-indent')
+        })
+        it('should create a block with an id', async () => {
+          return assertDeepEqual('block-id')
+        })
+        it('should create a block with a style and an id', async () => {
+          return assertDeepEqual('block-style-id')
+        })
       })
       describe('Document', () => {
         it('should create a sample document', async () => {

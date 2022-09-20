@@ -5,7 +5,7 @@
       "children": [
         {
           "type": "Paragraph",
-          "value": "Make an example of me."
+          "lines": ["Make an example of me."]
         }
       ]
     },
@@ -14,7 +14,7 @@
       "children": [
         {
           "type": "Paragraph",
-          "value": "Let me show you the way."
+          "lines": ["Let me show you the way."]
         }
       ]
     },
@@ -23,7 +23,7 @@
       "children": [
         {
           "type": "Paragraph",
-          "value": "Don't try this at home."
+          "lines": ["Don't try this at home."]
         }
       ]
     }
