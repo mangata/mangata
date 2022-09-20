@@ -81,6 +81,12 @@ describe('AsciiDocParser', () => {
         it('should create literal ident blocks', async () => {
           return assertDeepEqual('literal-indent')
         })
+        it('should create a block with an id', async () => {
+          return assertDeepEqual('block-id')
+        })
+        it('should create a block with a style and an id', async () => {
+          return assertDeepEqual('block-style-id')
+        })
       })
       describe('Document', () => {
         it('should create a sample document', async () => {

@@ -30,8 +30,23 @@ function toNode(block) {
     type = 'Section'
   } else if (block.getNodeName() === 'ulist') {
     type = 'UnorderedList'
+  } else if (block.getNodeName() === 'quote') {
+    type = 'Quote'
   } else {
     type = 'Block'
+  }
+  if (block['$content_model']() === 'simple') {
+    const attributes = {}
+    const id = block.getId()
+    if (id) {
+      attributes.id = id
+    }
+    const subs = block.subs.filter((sub) => sub !== 'replacements')
+    return {
+      type,
+      ...(Object.keys(attributes).length > 0 && { attributes }),
+      lines: [block.lines.map((l) => block.applySubstitutions(l, subs)).join(' ')],
+    }
   }
   if (block.getNodeName() === 'paragraph') {
     const subs = block.subs.filter((sub) => sub !== 'replacements')
@@ -81,8 +96,14 @@ function toNode(block) {
       children: block.getBlocks().map((block) => toNode(block)),
     }
   }
+  const attributes = {}
+  const id = block.getId()
+  if (id) {
+    attributes.id = id
+  }
   return {
     type,
+    ...(Object.keys(attributes).length > 0 && { attributes }),
     children: block.getBlocks().map((block) => toNode(block)),
   }
 }

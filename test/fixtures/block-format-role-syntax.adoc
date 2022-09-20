@@ -1,0 +1,4 @@
+[role=rolename]
+****
+This is a sidebar with one role assigned to it, rolename.
+****
