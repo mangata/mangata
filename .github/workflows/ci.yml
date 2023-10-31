@@ -9,16 +9,14 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        node-version: [16, 18]
     steps:
       - uses: actions/checkout@v3
-      - name: Use Node.js ${{ matrix.node-version }}
+      - name: Setup Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: ${{ matrix.node-version }}
+          node-version: 20
           cache: 'npm'
-      - run: npm ci
-      - run: npx prettier --check .
-      - run: npm t
+      - run: npm ci --audit --quiet
+      - run: npm run lint
+      - run: if [ -n "$(npm --silent run format && git --no-pager diff --name-only)" ]; then git --no-pager diff && false; fi
+      - run: npm run coverage

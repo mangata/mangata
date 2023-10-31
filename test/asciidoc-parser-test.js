@@ -1,23 +1,18 @@
 'use strict'
 
-import 'mocha'
-import assert from 'assert'
-import { promises as fs } from 'fs'
-import path from 'path'
-import { fileURLToPath } from 'url'
-import MangataParser from '../lib/index.js'
-import AsciidoctorEngine from './reference-implementation.js'
+import { promises as fs } from 'node:fs'
+import assert from 'node:assert'
+import path from 'node:path'
+import { fileURLToPath } from 'node:url'
+import util from 'node:util'
+import { describe, it } from 'node:test'
 
-import util from 'util'
+import MangataParser from '../lib/index.js'
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url))
 util.inspect.defaultOptions.depth = null
 
 const engines = [
-  {
-    name: 'Asciidoctor',
-    processor: new AsciidoctorEngine(),
-  },
   {
     name: 'Mangata',
     processor: new MangataParser(),
@@ -119,7 +114,6 @@ describe('AsciiDocParser', () => {
         const fixtureContents = await fs.readFile(fixturePath, 'UTF-8')
         return { path: fixturePath, contents: fixtureContents }
       }
-      const getSource = (node, documentNode) => documentNode.raw.slice(node.range)
     })
   }
 })

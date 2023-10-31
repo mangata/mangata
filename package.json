@@ -5,16 +5,17 @@
   "type": "module",
   "main": "lib/index.js",
   "engines": {
-    "node": ">= 16"
-  },
-  "lint-staged": {
-    "**/*": "prettier --write --ignore-unknown"
+    "node": ">= 20"
   },
   "scripts": {
-    "test": "mocha test/*-test.js",
-    "lint-check": "prettier --check .",
-    "lint-fix": "prettier --write .",
-    "prepare": "husky install"
+    "build": "npm run lint && npm t",
+    "coverage": "CODE_COVERAGE=1 c8 npm run test:ci",
+    "format": "node npm/format.js lib,npm,test",
+    "lint": "eslint \"{lib,test}/**/*.js\"",
+    "test": "node --test test/**-test.js",
+    "test:ci": "node --test-reporter=dot --test-reporter=junit --test-reporter-destination=stdout --test-reporter-destination=reports/tests-xunit.xml --test test/**-test.js",
+    "prepublishOnly": "npx -y downdoc --prepublish",
+    "postpublish": "npx -y downdoc --postpublish"
   },
   "keywords": [
     "asciidoc"
@@ -22,13 +23,25 @@
   "author": "Guillaume Grossetie",
   "license": "MPL-2.0",
   "devDependencies": {
-    "@asciidoctor/core": "~2.2",
-    "assert": "~2.0",
-    "chai": "~4.3",
-    "dirty-chai": "~2.0",
-    "husky": "^8.0.1",
-    "lint-staged": "^13.0.3",
-    "mocha": "~10.0",
-    "prettier": "2.7.1"
+    "c8": "~7.12",
+    "eslint": "~8.49",
+    "eslint-config-standard": "~17.1",
+    "prettier-eslint": "~15.0"
+  },
+  "c8": {
+    "all": true,
+    "cacheDir": "node_modules/.cache/nyc",
+    "include": [
+      "lib/**/*.js"
+    ],
+    "reporter": [
+      "cobertura",
+      "lcov",
+      "text"
+    ],
+    "reportDir": "reports"
+  },
+  "volta": {
+    "node": "20.8.0"
   }
 }
